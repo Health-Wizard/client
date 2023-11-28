@@ -6,7 +6,7 @@ export const CompanyDetailForm = () => {
           Tell us about your self
         </h2>
       </div>
-      <div className="h-[70%] flex flex-col gap-6">
+      <div className="h-[60%] flex flex-col gap-6">
         <div className="h-14 w-full border border-border_gray rounded-md">
           <input
             type="text"
@@ -39,9 +39,9 @@ export const CompanyDetailForm = () => {
       <div className="h-[10%]">
         <button
           type="button"
-          className="w-full py-3 text-sm text-white bg-primary rounded-md"
+          className="w-full py-3 text-sm text-white font-semibold bg-primary rounded-md"
         >
-          Next
+          Done
         </button>
       </div>
     </div>
