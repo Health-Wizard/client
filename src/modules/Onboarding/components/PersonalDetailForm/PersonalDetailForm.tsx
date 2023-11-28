@@ -1,12 +1,12 @@
 export const PersonalDetailForm = () => {
   return (
-    <div className=" h-[60%] w-[50%]">
-      <div className="h-[20%]">
+    <div className=" h-full flex flex-col gap-6 justify-center items-center w-[50%]">
+      <div className=" w-full">
         <h2 className="text-primary font-bold text-2xl">
           Tell us about your self
         </h2>
       </div>
-      <div className="h-[70%] flex flex-col gap-6">
+      <div className="flex flex-col gap-6 w-full">
         <div className="h-14 w-full border border-border_gray rounded-md">
           <input
             type="text"
@@ -78,7 +78,7 @@ export const PersonalDetailForm = () => {
           </div>
         </div>
       </div>
-      <div className="h-[10%]">
+      <div className=" w-full">
         <button
           type="button"
           className="w-full py-3 text-sm text-white bg-primary rounded-md font-semibold"
