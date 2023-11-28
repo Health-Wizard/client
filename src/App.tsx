@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Dashboard } from "@modules/Dashboard";
+import { Onboarding } from "@modules/Onboarding";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/onboarding" element={<Onboarding />} />
         </Routes>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
