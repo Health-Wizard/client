@@ -81,7 +81,7 @@ export const PersonalDetailForm = () => {
       <div className="h-[10%]">
         <button
           type="button"
-          className="w-full py-3 text-sm text-white bg-primary rounded-md"
+          className="w-full py-3 text-sm text-white bg-primary rounded-md font-semibold"
         >
           Next
         </button>
