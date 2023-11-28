@@ -1,7 +1,9 @@
-import React from 'react'
+import Layout from "@modules/Shared/layout/Layout";
 
 export const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <Layout>
+      <div className="h-full w-full ">Dashboard</div>
+    </Layout>
+  );
+};
