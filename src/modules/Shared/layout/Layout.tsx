@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="text-primary text-3xl font-bold">
           <h1>Intellicare</h1>
         </div>
-        <div className="flex gap-x-4 h-full w-[50%] justify-end border">
+        <div className="flex gap-x-4 h-full w-[50%] justify-end ">
           <div className="h-full w-[20%] max-w-[65px] max-h-[65px] rounded-full ">
             <img src={profile} className="h-full w-full rounded-full" alt="" />
           </div>
