@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Signin = () => {
   return (
     <div className="h-screen w-full flex ">
@@ -58,7 +56,7 @@ export const Signin = () => {
             </div>
             <div>
               <p className="text-sm text-center px-10 text-primary">
-                Need an account?{' '}
+                Need an account?{" "}
                 <a href="/signup" className="font-medium hover:underline">
                   Sign Up
                 </a>

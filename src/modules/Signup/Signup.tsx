@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Signup = () => {
   return (
     <div className="h-screen w-full flex ">
