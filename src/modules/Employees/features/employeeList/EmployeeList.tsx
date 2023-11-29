@@ -7,7 +7,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 export const EmployeeList = () => {
   return (
     <>
-      <div className="h-[15%] flex justify-between items-center">
+      <div className="h-[15%]  flex justify-between items-center">
         <h2 className="text-xl font-semibold">Employees directory</h2>
         <button className=" bg-primary text-white font-semibold flex items-center px-3 h-10 rounded-md">
           <MdAdd size={20} />
