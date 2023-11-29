@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const Signup = () => {
   return (
@@ -8,7 +8,7 @@ export const Signup = () => {
           <h1 className="font-bold text-2xl ">Intellicare </h1>
         </div>
         <div className="h-[80%]  flex items-center justify-center">
-          <div className=" h-full w-[50%]">
+          <div className=" h-full w-[50%] flex flex-col gap-3">
             <div className="h-[10%]">
               <h2 className="text-primary font-bold text-2xl">Sign Up</h2>
             </div>
@@ -59,7 +59,7 @@ export const Signup = () => {
             </div>
             <div>
               <p className="text-sm text-center px-10 text-primary">
-                Already Signed up. Please{' '}
+                Already Signed up. Please{" "}
                 <a href="/login" className="font-medium hover:underline">
                   Login In
                 </a>
