@@ -10,8 +10,8 @@ export const Onboarding = () => {
         </div>
         <div className="h-[80%]  flex items-center justify-center">
           {/* features */}
-          {/* <PersonalDetail /> */}
-          <CompanyDetail />
+          <PersonalDetail />
+          {/* <CompanyDetail /> */}
         </div>
       </div>
       <div className="h-full w-1/3 bg-primary text-white flex  flex-col  gap-10 items-center justify-center">
