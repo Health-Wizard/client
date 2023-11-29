@@ -16,7 +16,6 @@ import profile from "@assets/images/profile.jpeg";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
-  console.log(location.pathname);
   return (
     <div className="h-screen w-full pt-3">
       {/* Header */}
