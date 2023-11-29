@@ -7,6 +7,7 @@ export default {
         primary: "#5856d6",
         text_gray: "#8087a1",
         border_gray: "#c7cad4",
+        bg_gray: "#f5f9fa",
       },
     },
   },
