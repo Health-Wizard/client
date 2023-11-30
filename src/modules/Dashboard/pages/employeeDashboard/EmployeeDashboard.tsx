@@ -3,11 +3,11 @@ import EmployeeMonitor from "@modules/Dashboard/components/EmployeeMonitor/Emplo
 import EmployeeReportCards from "@modules/Dashboard/components/EmployeeReportCards/EmployeeReportCards";
 import EmployeeWelcome from "@modules/Dashboard/components/EmployeeWelcome/EmployeeWelcome";
 import SleepMonitor from "@modules/Dashboard/components/SleepMonitor/SleepMonitor";
-import Profile from "@modules/Dashboard/components/profile/Profile";
+import Profile from "@modules/Dashboard/features/profile/Profile";
 
 export default function EmployeeDashboard() {
   return (
-    <div className="w-full h-full flex gap-6 pt-4">
+    <div className="w-full h-full flex gap-6 ">
       <div className="h-full w-[80%] flex flex-col gap-3">
         <div className="h-[20%] ">
           <EmployeeWelcome />
