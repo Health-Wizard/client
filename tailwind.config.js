@@ -9,6 +9,8 @@ export default {
         border_gray: "#c7cad4",
         bg_gray: "#f5f9fa",
         input_field_gray: "#eeeeee",
+        blue_shade_1: "#eff8ff",
+        blue_shade_2: "#e1f2fd",
       },
     },
   },
