@@ -153,7 +153,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         {/* Main body */}
-        <div className="w-[85%] h-full ">
+        <div className="w-[65%] h-full p-5 bg-slate-200 rounded-md ">
           {/* container for all pages */}
           {children}
         </div>
