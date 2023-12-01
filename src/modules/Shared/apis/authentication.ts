@@ -1,3 +1,4 @@
+import { Login, Register } from 'src/interfaces/employee';
 import { AxiosClient } from './axiosInstance';
 
 /**
@@ -10,13 +11,13 @@ import { AxiosClient } from './axiosInstance';
  * @returns {Promise<Object>} A Promise that resolves to the response data if the request is successful.
  * @throws {Error} If the request encounters an error.
  */
-export const registerEmployee = async (name: string, username: string, companyEmail: string, password: string) => {
+export const registerEmployee = async (employee: Register) => {
   try {
     const response = await AxiosClient.post('/emp/register', {
-      name: name,
-      username: username,
-      companyEmail: companyEmail,
-      password: password,
+      name: employee.name,
+      username: employee.username,
+      companyEmail: employee.companyEmail,
+      password: employee.password,
     });
     console.log('Response:', response.data);
     return response.data
@@ -33,12 +34,15 @@ export const registerEmployee = async (name: string, username: string, companyEm
  * @returns {Promise<Object>} A Promise that resolves to the response data if the login is successful.
  * @throws {Error} If the login request encounters an error.
  */
-export const loginEmployee = async (companyEmail: string, password: string) => {
+export const loginEmployee = async (employee: Login) => {
     try {
     const response = await AxiosClient.post('/emp/login', {
-      companyEmail: companyEmail,
-      password: password,
+      companyEmail: employee.companyEmail,
+      password: employee.password,
     });
+    const token = response.data.token;
+    localStorage.setItem('authToken', token);
+
     console.log('Response:', response.data);
     return response.data
   } catch (error) {
@@ -46,3 +50,17 @@ export const loginEmployee = async (companyEmail: string, password: string) => {
   }
 }
 
+/**
+ * Logs out the user by removing the authentication token from local storage.
+ *
+ * @throws {Error} If an error occurs during the logout process.
+ */
+export const logout = () => {
+  try {
+    localStorage.removeItem('authToken');
+    
+    console.log('Logout successful');
+  } catch (error) {
+    console.error('Error during logout:', error);
+  }
+}
