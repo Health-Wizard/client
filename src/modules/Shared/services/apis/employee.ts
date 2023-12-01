@@ -27,7 +27,23 @@ export const getAllEmployees = async () => {
   try {
     const response = await AxiosClient.get("/emp/getEmployees");
     console.log(response);
-    return response;
+    return response.data;
+  } catch (error) {
+    console.log('Error: ', error);
+  }
+};
+
+/**
+ * Retrieves all employees in a company by making a GET request to the '/emp/getEmployeesByCompany' endpoint.
+ *
+ * @returns {Promise<Array<Employee>>} A Promise that resolves to an array containing employee data for the specified company.
+ * @throws {Error} If the request encounters an error.
+ */
+export const getAllEmployeesByCompanyName = async () => {
+  try {
+    const response = await AxiosClient.get('/emp/getEmployeesByCompany');
+    console.log(response);
+    return response.data;
   } catch (error) {
     console.log("Error: ", error);
   }
@@ -137,3 +153,19 @@ export const getAllCompanyNames = async () => {
     console.log("Error: ", error);
   }
 };
+
+/**
+ * Retrieves the role of the authenticated user by making a GET request to the '/emp/role/' endpoint.
+ *
+ * @returns {Promise<{ role: string }>} A Promise that resolves to an object containing the user's role.
+ * @throws {Error} If the request encounters an error.
+ */
+export const getRole = async () => {
+  try {
+    const response = await AxiosClient.get('emp/role/');
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log('Error: ', error);
+  }
+}
