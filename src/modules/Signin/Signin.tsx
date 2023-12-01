@@ -54,7 +54,7 @@ export const Signin = () => {
 
   const submitForm = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
     // Trigger the mutation with form data
     mutation.mutate(formData);
   };

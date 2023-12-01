@@ -1,6 +1,17 @@
+import { getAllCompanyNames } from "@modules/Shared/services/apis/employee";
 import { useAuthStore } from "@modules/Shared/store/userStore";
+import { useQuery } from "react-query";
+
+const fetchCompanyData = async () => {
+  const response = await getAllCompanyNames();
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
 
 export const CompanyDetailForm = () => {
+  const { data } = useQuery("companyList", fetchCompanyData);
+
   const store = useAuthStore();
   console.log(store.onBoarding);
   return (
