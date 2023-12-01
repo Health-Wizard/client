@@ -1,3 +1,4 @@
+
 import { Login, Register } from "src/interfaces/employee";
 import { AxiosClient } from "./axiosInstance";
 import { useAuthStore } from "@modules/Shared/store/userStore";
@@ -33,6 +34,7 @@ const decode = (token: string) => {
   });
 };
 
+
 /**
  * Registers a new employee by sending a POST request to the '/emp/register' endpoint.
  *
@@ -45,16 +47,20 @@ const decode = (token: string) => {
  */
 export const registerEmployee = async (employee: Register) => {
   try {
-    const response = await AxiosClient.post("/emp/register", {
+
+    const response = await AxiosClient.post('/emp/register', {
+
       name: employee.name,
       username: employee.username,
       companyEmail: employee.companyEmail,
       password: employee.password,
     });
-    console.log("Response:", response.data);
-    return response.data;
+
+    console.log('Response:', response.data);
+    return response.data
   } catch (error) {
-    console.error("Error:", error);
+    console.error('Error:', error);
+
   }
 };
 
@@ -67,12 +73,15 @@ export const registerEmployee = async (employee: Register) => {
  * @throws {Error} If the login request encounters an error.
  */
 export const loginEmployee = async (employee: Login) => {
-  try {
-    const response = await AxiosClient.post("/emp/login", {
+
+    try {
+    const response = await AxiosClient.post('/emp/login', {
+
       companyEmail: employee.companyEmail,
       password: employee.password,
     });
     const token = response.data.token;
+
     decode(token);
     localStorage.setItem("authToken", token);
 
@@ -83,6 +92,7 @@ export const loginEmployee = async (employee: Login) => {
   }
 };
 
+
 /**
  * Logs out the user by removing the authentication token from local storage.
  *
@@ -90,10 +100,11 @@ export const loginEmployee = async (employee: Login) => {
  */
 export const logout = () => {
   try {
-    localStorage.removeItem("authToken");
 
-    console.log("Logout successful");
+    localStorage.removeItem('authToken');
+    
+    console.log('Logout successful');
   } catch (error) {
-    console.error("Error during logout:", error);
+    console.error('Error during logout:', error);
   }
-};
+}
