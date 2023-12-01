@@ -1,4 +1,42 @@
-export const PersonalDetailForm = () => {
+import { useAuthStore } from "@modules/Shared/store/userStore";
+import { useState } from "react";
+
+interface IProps {
+  setPage: (state: boolean) => void;
+}
+
+interface FormData {
+  // Define form fields
+  designation: string;
+  role: string;
+  gender: string;
+}
+
+export const PersonalDetailForm = ({ setPage }: IProps) => {
+  const { setOnBoarding } = useAuthStore();
+  const [formData, setFormData] = useState<FormData>({
+    designation: "",
+    role: "",
+    gender: "",
+  });
+
+  // Update form data on input changes
+  const handleInputChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const proceed = () => {
+    setOnBoarding(formData);
+    setPage(true);
+  };
+
   return (
     <div className=" h-full flex flex-col gap-6 justify-center items-center w-[50%]">
       <div className=" w-full">
@@ -10,27 +48,36 @@ export const PersonalDetailForm = () => {
         <div className="h-14 w-full border border-border_gray rounded-md">
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Designation"
+            name="designation"
             className="w-full h-full px-3 text-sm outline-none  rounded-md "
+            value={formData.designation}
+            onChange={handleInputChange}
           />
         </div>
         <div className="h-14 w-full border border-border_gray rounded-md">
-          <input
-            type="text"
+          <select
             placeholder="Role"
-            className="w-full h-full px-3 text-sm outline-none  rounded-md "
-          />
+            name="role"
+            className="w-full h-full px-3 text-sm outline-none cursor-pointer  rounded-md  "
+            value={formData.role}
+            onChange={handleInputChange}
+          >
+            <option value="">Role</option>
+            <option value="Admin">Admin</option>
+            <option value="Employee">Employee</option>
+          </select>
         </div>
         <p className="text-primary text-xs font-semibold">Gender</p>
         <div className="flex gap-10">
           <div className="flex items-center">
             <input
               id="option1"
-              name="options"
+              name="gender"
               type="radio"
-              value="option1"
-              // checked={selected === "option1"}
-              // onChange={() => setSelected("option1")}
+              value="male"
+              checked={formData.gender === "male"}
+              onChange={handleInputChange}
               className="w-4 h-4 text-primary cursor-pointer bg-gray-100 border-gray-300 focus:ring-primary accent-primary"
             />
             <label
@@ -44,11 +91,11 @@ export const PersonalDetailForm = () => {
           <div className="flex items-center ">
             <input
               id="option2"
-              name="options"
+              name="gender"
               type="radio"
-              value="option2"
-              // checked={selected === "option2"}
-              // onChange={() => setSelected("option2")}
+              value="female"
+              checked={formData.gender === "female"}
+              onChange={handleInputChange}
               className="w-4 h-4 text-primary bg-gray-100 cursor-pointer border-gray-300 focus:ring-primary accent-primary"
             />
             <label
@@ -62,11 +109,11 @@ export const PersonalDetailForm = () => {
           <div className="flex items-center ">
             <input
               id="option3"
-              name="options"
+              name="gender"
               type="radio"
-              value="option3"
-              // checked={selected === "option3"}
-              // onChange={() => setSelected("option3")}
+              value="none"
+              checked={formData.gender === "none"}
+              onChange={handleInputChange}
               className="w-4 h-4 text-primary bg-gray-100 cursor-pointer border-gray-300 focus:ring-primary accent-primary"
             />
             <label
@@ -81,6 +128,9 @@ export const PersonalDetailForm = () => {
       <div className=" w-full">
         <button
           type="button"
+          onClick={() => {
+            proceed();
+          }}
           className="w-full py-3 text-sm text-white bg-primary rounded-md font-semibold"
         >
           Next

@@ -1,9 +1,13 @@
-import { PersonalDetailForm } from "@modules/Onboarding/components/PersonalDetailForm"
+import { PersonalDetailForm } from "@modules/Onboarding/components/PersonalDetailForm";
 
-export const PersonalDetail = () => {
+interface IProps {
+  setPage: (state: boolean) => void;
+}
+
+export const PersonalDetail = ({ setPage }: IProps) => {
   return (
     <>
-        <PersonalDetailForm />
+      <PersonalDetailForm setPage={setPage} />
     </>
-  )
-}
+  );
+};
