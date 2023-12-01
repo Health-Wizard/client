@@ -1,5 +1,6 @@
-import { Admin, Employee } from 'src/interfaces/employee';
-import { AxiosClient } from './axiosInstance';
+import { Admin, Employee } from "src/interfaces/employee";
+
+import { AxiosClient } from "./axiosInstance";
 
 /**
  * Retrieves information for a single employee by making a GET request to the '/emp/getEmployee/:empId' endpoint.
@@ -10,9 +11,9 @@ import { AxiosClient } from './axiosInstance';
 export const getSingleEmployee = async (empId: Number) => {
   try {
     const response = await AxiosClient.get(`/emp/getEmployee/${empId}`);
-    console.log(response, 'response');
+    console.log(response, "response");
   } catch (error) {
-    console.log('Error: ', error);
+    console.log("Error: ", error);
   }
 };
 
@@ -24,16 +25,18 @@ export const getSingleEmployee = async (empId: Number) => {
  */
 export const getAllEmployees = async () => {
   try {
-    const response = await AxiosClient.get('/emp/getEmployees');
+    const response = await AxiosClient.get("/emp/getEmployees");
     console.log(response);
     return response;
   } catch (error) {
-    console.log('Error: ', error);
+    console.log("Error: ", error);
   }
 };
 
 /**
+
  * Creates a new employee by making a POST request to the '/emp/createEmployee' endpoint.
+
  *
  * @param {Employee} employee - The employee object containing details for the new employee.
  * @returns {Promise<Object>} A Promise that resolves to the response data for the created employee.
@@ -41,20 +44,22 @@ export const getAllEmployees = async () => {
  */
 export const createEmployee = async (employee: Employee) => {
   try {
-    const response = await AxiosClient.post('/emp/createEmployee', {
+    const response = await AxiosClient.post("/emp/createEmployee", {
       department: employee.department,
+
       designation: employee.designation,
       dateOfJoining: employee.dateOfJoining,
       salary: employee.salary,
       role: employee.role,
       gender: employee.gender,
       companyName: employee.companyName,
-      age: employee.age
+
+      age: employee.age,
     });
-    console.log('Response:', response.data);
+    console.log("Response:", response.data);
     return response.data;
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 };
 
@@ -67,19 +72,19 @@ export const createEmployee = async (employee: Employee) => {
  */
 export const createAdmin = async (employee: Admin) => {
   try {
-    const response = await AxiosClient.post('/emp/createAdmin', {
+    const response = await AxiosClient.post("/emp/createAdmin", {
       designation: employee.designation,
       sector: employee.sector,
       sizeOfCompany: employee.sizeOfCompany,
       role: employee.role,
       gender: employee.gender,
       companyName: employee.companyName,
-      companyUrl: employee.companyUrl
+      companyUrl: employee.companyUrl,
     });
-    console.log('Response:', response.data);
+    console.log("Response:", response.data);
     return response.data;
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 };
 
@@ -113,7 +118,7 @@ export const deleteEmployee = async (empId: Number) => {
     console.log(response);
     return response.data;
   } catch (error) {
-    console.log('Error: ', error);
+    console.log("Error: ", error);
   }
 };
 
@@ -125,10 +130,10 @@ export const deleteEmployee = async (empId: Number) => {
  */
 export const getAllCompanyNames = async () => {
   try {
-    const response = await AxiosClient.get('/emp/companyName');
+    const response = await AxiosClient.get("/emp/companyName");
     console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log('Error: ', error);
+    console.log("Error: ", error);
   }
 };
