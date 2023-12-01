@@ -42,13 +42,14 @@ export const getAllEmployees = async () => {
 export const createEmployee = async (employee: Employee) => {
   try {
     const response = await AxiosClient.post('/emp/register', {
-      name: employee.name,
+      department: employee.department,
       designation: employee.designation,
       dateOfJoining: employee.dateOfJoining,
       salary: employee.salary,
       role: employee.role,
       gender: employee.gender,
       companyName: employee.companyName,
+      age: employee.age
     });
     console.log('Response:', response.data);
     return response.data;

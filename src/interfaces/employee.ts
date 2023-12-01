@@ -1,11 +1,12 @@
 export interface Employee {
-  name: string;
+  department: string;
   designation?: string;
   dateOfJoining?: string;
   salary?: number;
   role?: string;
   gender?: string;
   companyName?: string;
+  age?: Number,
 }
 
 export interface Register {
