@@ -1,4 +1,6 @@
+
 import { Admin, Employee } from 'src/interfaces/employee';
+
 import { AxiosClient } from './axiosInstance';
 
 /**
@@ -33,7 +35,9 @@ export const getAllEmployees = async () => {
 };
 
 /**
+
  * Creates a new employee by making a POST request to the '/emp/createEmployee' endpoint.
+
  *
  * @param {Employee} employee - The employee object containing details for the new employee.
  * @returns {Promise<Object>} A Promise that resolves to the response data for the created employee.
@@ -41,14 +45,17 @@ export const getAllEmployees = async () => {
  */
 export const createEmployee = async (employee: Employee) => {
   try {
+
     const response = await AxiosClient.post('/emp/createEmployee', {
       department: employee.department,
+
       designation: employee.designation,
       dateOfJoining: employee.dateOfJoining,
       salary: employee.salary,
       role: employee.role,
       gender: employee.gender,
       companyName: employee.companyName,
+
       age: employee.age
     });
     console.log('Response:', response.data);
@@ -75,6 +82,7 @@ export const createAdmin = async (employee: Admin) => {
       gender: employee.gender,
       companyName: employee.companyName,
       companyUrl: employee.companyUrl
+
     });
     console.log('Response:', response.data);
     return response.data;
