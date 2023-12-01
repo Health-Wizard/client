@@ -1,4 +1,4 @@
-import { Employee } from 'src/interfaces/employee';
+import { Admin, Employee } from 'src/interfaces/employee';
 import { AxiosClient } from './axiosInstance';
 
 /**
@@ -33,7 +33,7 @@ export const getAllEmployees = async () => {
 };
 
 /**
- * Creates a new employee by making a POST request to the '/emp/register' endpoint.
+ * Creates a new employee by making a POST request to the '/emp/createEmployee' endpoint.
  *
  * @param {Employee} employee - The employee object containing details for the new employee.
  * @returns {Promise<Object>} A Promise that resolves to the response data for the created employee.
@@ -41,7 +41,7 @@ export const getAllEmployees = async () => {
  */
 export const createEmployee = async (employee: Employee) => {
   try {
-    const response = await AxiosClient.post('/emp/register', {
+    const response = await AxiosClient.post('/emp/createEmployee', {
       department: employee.department,
       designation: employee.designation,
       dateOfJoining: employee.dateOfJoining,
@@ -50,6 +50,31 @@ export const createEmployee = async (employee: Employee) => {
       gender: employee.gender,
       companyName: employee.companyName,
       age: employee.age
+    });
+    console.log('Response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+/**
+ * Creates a new admin by making a POST request to the '/emp/createAdmin' endpoint.
+ *
+ * @param {Admin} employee - The admin object containing details for the new employee.
+ * @returns {Promise<Object>} A Promise that resolves to the response data for the created employee.
+ * @throws {Error} If the request encounters an error.
+ */
+export const createAdmin = async (employee: Admin) => {
+  try {
+    const response = await AxiosClient.post('/emp/createAdmin', {
+      designation: employee.designation,
+      sector: employee.sector,
+      sizeOfCompany: employee.sizeOfCompany,
+      role: employee.role,
+      gender: employee.gender,
+      companyName: employee.companyName,
+      companyUrl: employee.companyUrl
     });
     console.log('Response:', response.data);
     return response.data;

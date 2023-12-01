@@ -20,3 +20,13 @@ export interface Login {
   companyEmail: string;
   password: string;
 }
+
+export interface Admin {
+  designation?: string;
+  companyName?: string;
+  gender?: string;
+  role?: string;
+  sector?: string;
+  sizeOfCompany?: string;
+  companyUrl?: string;
+}
