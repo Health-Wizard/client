@@ -26,7 +26,7 @@ export const getSingleEmployee = async (empId: Number) => {
 export const getAllEmployees = async () => {
   try {
     const response = await AxiosClient.get("/emp/getEmployees");
-    console.log(response);
+    //console.log(response);
     return response.data;
   } catch (error) {
     console.log("Error: ", error);
