@@ -71,6 +71,7 @@ export const EmployeeList = () => {
             {data &&
               data.employees.map((employee: Employee, idx) => (
                 <div
+                  key={idx}
                   className={`${
                     idx < 3
                       ? "border-r"

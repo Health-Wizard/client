@@ -11,6 +11,7 @@ import { AxiosClient } from "./axiosInstance";
 export const getSingleEmployee = async (empId: Number) => {
   try {
     const response = await AxiosClient.get(`/emp/getEmployee/${empId}`);
+    return response.data;
     console.log(response, "response");
   } catch (error) {
     console.log("Error: ", error);
@@ -165,7 +166,7 @@ export const getAllCompanyNames = async (page: number = 1) => {
 export const getRole = async () => {
   try {
     const response = await AxiosClient.get("emp/role/");
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.log("Error: ", error);
