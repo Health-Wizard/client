@@ -9,12 +9,28 @@ import { LuHeartHandshake } from "react-icons/lu";
 import { RxExit } from "react-icons/rx";
 import { MdOutlineHelpCenter } from "react-icons/md";
 import { MdOutlineSettings } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import profile from "@assets/images/profile.jpeg";
+import { logout } from "../services/apis/authentication";
+import { useAuthStore } from "../store/userStore";
+import { useEffect } from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const store = useAuthStore();
+
+  const logoutUser = () => {
+    logout();
+    store.resetUser();
+    navigate("/login");
+  };
+
+  //redirect user to log in is not authenticated
+  useEffect(() => {
+    if (Object.keys(store.user).length === 0) navigate("/login");
+  }, []);
 
   return (
     <div className="h-screen w-full pt-3">
@@ -146,7 +162,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="f-full w-[20%]  flex items-center">
                 <RxExit size={20} className="" />
               </div>
-              <div className="flex items-center text-sm font-semibold">
+              <div
+                className="flex items-center text-sm font-semibold"
+                onClick={logoutUser}
+              >
                 Log out
               </div>
             </div>

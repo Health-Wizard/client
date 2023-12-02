@@ -17,7 +17,7 @@ interface User {
   onBoarding: IOnBoarding;
   setUser: (user: IUser) => void;
   setOnBoarding: (data: IOnBoarding) => void;
-  removeUser: () => void;
+  resetUser: () => void;
 }
 
 export const useAuthStore = create<User>()(
@@ -56,9 +56,14 @@ export const useAuthStore = create<User>()(
         }));
       },
       //clear user
-      removeUser() {
+      resetUser() {
         set(() => ({
           user: {},
+          onBoarding: {
+            designation: "",
+            role: "",
+            gender: "",
+          },
         }));
       },
     }),
