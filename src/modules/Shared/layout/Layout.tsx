@@ -37,7 +37,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <div className="w-full h-[10%] flex  justify-between px-2">
         <div className="text-primary text-3xl font-bold ">
-          <h1>MindSync</h1>
+          <Link to="/">MindSync</Link>
         </div>
         <div className="flex gap-x-4 h-full w-[50%] justify-end ">
           <div className="h-full w-[20%] max-w-[65px] max-h-[65px] rounded-full ">
@@ -67,8 +67,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Dashboard
               </div>
             </Link>
-            <div
-              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
+            <Link
+              to="/calendar"
+              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 ${
+                location.pathname == "/calendar" ? "bg-primary text-white" : ""
+              } hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <IoCalendarOutline size={20} className="" />
@@ -76,7 +79,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center text-sm font-semibold">
                 Calendar
               </div>
-            </div>
+            </Link>
 
             <Link
               to="/employees"
@@ -92,8 +95,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
             </Link>
 
-            <div
-              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
+            <Link
+              to="/staffschedule"
+              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 ${
+                location.pathname == "/staffschedule"
+                  ? "bg-primary text-white"
+                  : ""
+              } hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <CiClock2 size={20} className="" />
@@ -101,11 +109,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center text-sm font-semibold">
                 Staff Schedule
               </div>
-            </div>
+            </Link>
           </div>
           <div className="h-[33.3%] flex flex-col justify-start">
-            <div
-              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
+            <Link
+              to="/doctors"
+              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 ${
+                location.pathname == "/doctors" ? "bg-primary text-white" : ""
+              } hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <LuHeartHandshake size={20} className="" />
@@ -113,9 +124,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center text-sm font-semibold">
                 Doctors
               </div>
-            </div>
-            <div
-              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
+            </Link>
+            <Link
+              to="/departments"
+              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 ${
+                location.pathname == "/departments"
+                  ? "bg-primary text-white"
+                  : ""
+              } hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <HiBuildingOffice2 size={20} className="" />
@@ -123,9 +139,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center text-sm font-semibold">
                 Departments
               </div>
-            </div>
-            <div
-              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
+            </Link>
+            <Link
+              to="/stock"
+              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 ${
+                location.pathname == "/stock" ? "bg-primary text-white" : ""
+              } hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <FaBoxArchive size={20} className="" />
@@ -133,11 +152,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center text-sm font-semibold">
                 Stock
               </div>
-            </div>
+            </Link>
           </div>
           <div className="h-[33.3%] flex flex-col justify-end">
-            <div
-              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
+            <Link
+              to="/settings"
+              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 ${
+                location.pathname == "/settings" ? "bg-primary text-white" : ""
+              } hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <MdOutlineSettings size={20} className="" />
@@ -145,9 +167,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center text-sm font-semibold">
                 Settings
               </div>
-            </div>
-            <div
-              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
+            </Link>
+            <Link
+              to="/helpcenter"
+              className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 ${
+                location.pathname == "/helpcenter"
+                  ? "bg-primary text-white"
+                  : ""
+              } hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <MdOutlineHelpCenter size={20} className="" />
@@ -155,7 +182,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center text-sm font-semibold">
                 Help center
               </div>
-            </div>
+            </Link>
             <div
               className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
             >
