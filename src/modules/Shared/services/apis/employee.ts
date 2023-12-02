@@ -39,9 +39,9 @@ export const getAllEmployees = async () => {
  * @returns {Promise<Array<Employee>>} A Promise that resolves to an array containing employee data for the specified company.
  * @throws {Error} If the request encounters an error.
  */
-export const getAllEmployeesByCompanyName = async () => {
+export const getAllEmployeesByCompanyName = async (page: number = 1) => {
   try {
-    const response = await AxiosClient.get('/emp/getEmployeesByCompany');
+    const response = await AxiosClient.get(`/emp/getEmployeesByCompany?page=${page}`);
     console.log(response);
     return response.data;
   } catch (error) {
@@ -144,9 +144,9 @@ export const deleteEmployee = async (empId: Number) => {
  * @returns {Promise<Array<string>>} A Promise that resolves to an array containing unique company names.
  * @throws {Error} If the request encounters an error.
  */
-export const getAllCompanyNames = async () => {
+export const getAllCompanyNames = async (page: number = 1) => {
   try {
-    const response = await AxiosClient.get("/emp/companyName");
+    const response = await AxiosClient.get(`/emp/companyName?page=${page}`);
     console.log(response.data);
     return response.data;
   } catch (error) {
