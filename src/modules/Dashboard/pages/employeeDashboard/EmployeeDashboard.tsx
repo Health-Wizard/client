@@ -4,8 +4,35 @@ import EmployeeReportCards from "@modules/Dashboard/components/EmployeeReportCar
 import EmployeeWelcome from "@modules/Dashboard/components/EmployeeWelcome/EmployeeWelcome";
 import SleepMonitor from "@modules/Dashboard/components/SleepMonitor/SleepMonitor";
 import Profile from "@modules/Dashboard/features/profile/Profile";
+import { getSingleEmployee } from "@modules/Shared/services/apis/employee";
+import { useEmployeeStore } from "@modules/Shared/store/employeeStore";
+import { useAuthStore } from "@modules/Shared/store/userStore";
+
+import { useQuery } from "react-query";
+
+const fetchEmployee = async (empId: number) => {
+  const data = await getSingleEmployee(empId);
+  return data;
+};
 
 export default function EmployeeDashboard() {
+  const { user } = useAuthStore();
+  const { setEmployee } = useEmployeeStore();
+  const { isLoading } = useQuery(
+    //@ts-ignore
+    ["employee", user.empId],
+    () =>
+      //@ts-ignore
+      fetchEmployee(user.empId),
+    {
+      onSuccess: (data) => {
+        // Perform actions on successful fetch
+        setEmployee(data.employee);
+        // You can do more here, such as dispatching actions or updating local state
+      },
+    }
+  );
+
   return (
     <div className="w-full h-full flex gap-6 ">
       <div className="h-full w-[80%] flex flex-col gap-3">
