@@ -70,7 +70,7 @@ export const Signin = () => {
     <div className="h-screen w-full flex ">
       <div className="h-full w-2/4 bg-primary text-white flex  flex-col  gap-14 items-center justify-center p-4">
         <div className="h-[15%] text-white w-full">
-          <h1 className="font-bold text-2xl text-white">Health-Hazard </h1>
+          <h1 className="font-bold text-2xl text-white">MindSync </h1>
         </div>
         <div className="h-[80%] flex flex-col gap-10 items-center justify-center">
           <img
@@ -80,8 +80,8 @@ export const Signin = () => {
           <div>
             <p className="text-sm text-center px-10">
               Join thousands of satisfied users who have transformed their
-              health routines with Health-Hazard's intuitive interface,
-              comprehensive data analysis, and actionable recommendations.
+              health routines with MindSync's intuitive interface, comprehensive
+              data analysis, and actionable recommendations.
             </p>
           </div>
         </div>
