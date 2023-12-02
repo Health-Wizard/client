@@ -1,7 +1,8 @@
 import { loginEmployee } from "@modules/Shared/services/apis/authentication";
-import { useState } from "react";
+import { useAuthStore } from "@modules/Shared/store/userStore";
+import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FormData {
   // Define form fields
@@ -23,6 +24,7 @@ const loginUser = async (formData: FormData) => {
   }
 };
 export const Signin = () => {
+  const store = useAuthStore();
   const navigate = useNavigate();
   const mutation = useMutation(loginUser, {
     onSuccess: (data) => {
@@ -59,11 +61,16 @@ export const Signin = () => {
     mutation.mutate(formData);
   };
 
+  //redirect user to home
+  useEffect(() => {
+    if (Object.keys(store.user).length > 0) navigate("/");
+  }, []);
+
   return (
     <div className="h-screen w-full flex ">
       <div className="h-full w-2/4 bg-primary text-white flex  flex-col  gap-14 items-center justify-center p-4">
         <div className="h-[15%] text-white w-full">
-          <h1 className="font-bold text-2xl text-white">Intellicare </h1>
+          <h1 className="font-bold text-2xl text-white">Health-Hazard </h1>
         </div>
         <div className="h-[80%] flex flex-col gap-10 items-center justify-center">
           <img
@@ -73,7 +80,7 @@ export const Signin = () => {
           <div>
             <p className="text-sm text-center px-10">
               Join thousands of satisfied users who have transformed their
-              health routines with IntelliCare's intuitive interface,
+              health routines with Health-Hazard's intuitive interface,
               comprehensive data analysis, and actionable recommendations.
             </p>
           </div>
@@ -126,9 +133,9 @@ export const Signin = () => {
             <div>
               <p className="text-sm text-center px-10 text-primary">
                 Need an account?{" "}
-                <a href="/signup" className="font-medium hover:underline">
+                <Link to="/signup" className="font-medium hover:underline">
                   Sign Up
-                </a>
+                </Link>
               </p>
             </div>
           </form>

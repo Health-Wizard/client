@@ -1,7 +1,8 @@
 import { registerEmployee } from "@modules/Shared/services/apis/authentication";
-import { useState } from "react";
+import { useAuthStore } from "@modules/Shared/store/userStore";
+import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FormData {
   // Define form fields
@@ -17,6 +18,7 @@ const registerUser = async (formData: FormData) => {
 };
 
 export const Signup = () => {
+  const store = useAuthStore();
   const navigate = useNavigate();
   const mutation = useMutation(registerUser, {
     onSuccess: () => {
@@ -52,11 +54,16 @@ export const Signup = () => {
     mutation.mutate(formData);
   };
 
+  //redirect user to home
+  useEffect(() => {
+    if (Object.keys(store.user).length > 0) navigate("/");
+  }, []);
+
   return (
     <div className="h-screen w-full flex ">
       <div className="w-2/3 p-4">
         <div className="h-[15%] text-primary">
-          <h1 className="font-bold text-2xl ">Intellicare </h1>
+          <h1 className="font-bold text-2xl ">Health-Hazard </h1>
         </div>
         <div className="h-[80%]  flex items-center justify-center">
           <form
@@ -132,9 +139,9 @@ export const Signup = () => {
             <div>
               <p className="text-sm text-center px-10 text-primary">
                 Already Signed up. Please{" "}
-                <a href="/login" className="font-medium hover:underline">
+                <Link to="/login" className="font-medium hover:underline">
                   Login In
-                </a>
+                </Link>
               </p>
             </div>
           </form>
@@ -148,8 +155,8 @@ export const Signup = () => {
         <div>
           <p className="text-sm text-center px-10">
             Join thousands of satisfied users who have transformed their health
-            routines with IntelliCare's intuitive interface, comprehensive data
-            analysis, and actionable recommendations.
+            routines with Health-Hazards's intuitive interface, comprehensive
+            data analysis, and actionable recommendations.
           </p>
         </div>
       </div>
