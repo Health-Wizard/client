@@ -7,6 +7,7 @@ import { getAllEmployeesByCompanyName } from "@modules/Shared/services/apis/empl
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import LoadingIcons from "react-loading-icons";
+import { Employee } from "src/interfaces/employee";
 
 const fetchEmployees = async (param: number) => {
   // Fetch data based on the parameter
@@ -15,32 +16,29 @@ const fetchEmployees = async (param: number) => {
   return data;
 };
 
-interface IEmployee {
-  age: number | null;
-  companyEmail: string;
-  companyName: string;
-  companyUrl: string;
-  dateOfJoining: string;
-  department: string;
-  designation: string;
-  empId: number;
-  gender: string;
-  id: number;
-  name: string;
-  role: string;
-  salary: string;
-  sector: string;
-  sizeOfCompany: string;
-  username: string;
-}
+// interface IEmployee {
+//   age: number | null;
+//   companyEmail: string;
+//   companyName: string;
+//   companyUrl: string;
+//   dateOfJoining: string;
+//   department: string;
+//   designation: string;
+//   empId: number;
+//   gender: string;
+//   id: number;
+//   name: string;
+//   role: string;
+//   salary: string;
+//   sector: string;
+//   sizeOfCompany: string;
+//   username: string;
+// }
 
 interface Items {
   currentPage: number;
-
   employeeCount: number;
-
-  employees: IEmployee[];
-
+  employees: Employee[];
   totalPages: number;
 }
 
@@ -71,7 +69,7 @@ export const EmployeeList = () => {
         {!isLoading && data && (
           <div className="h-[90%] border border-border_gray grid grid-cols-4 rounded-xl ">
             {data &&
-              data.employees.map((employee: IEmployee, idx) => (
+              data.employees.map((employee: Employee, idx) => (
                 <div
                   className={`${
                     idx < 3
