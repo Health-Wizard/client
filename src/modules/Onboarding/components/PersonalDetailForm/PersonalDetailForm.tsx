@@ -59,7 +59,7 @@ export const PersonalDetailForm = ({ setPage }: IProps) => {
           <select
             placeholder="Role"
             name="role"
-            className="w-full h-full px-3 text-sm outline-none cursor-pointer  rounded-md  "
+            className="w-full h-full px-3 text-sm outline-none cursor-pointer  rounded-md appearance-none "
             value={formData.role}
             onChange={handleInputChange}
           >
