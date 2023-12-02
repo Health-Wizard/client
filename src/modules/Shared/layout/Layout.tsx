@@ -37,7 +37,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <div className="w-full h-[10%] flex  justify-between px-2">
         <div className="text-primary text-3xl font-bold ">
-          <h1>Health-Hazard</h1>
+          <h1>MindSync</h1>
         </div>
         <div className="flex gap-x-4 h-full w-[50%] justify-end ">
           <div className="h-full w-[20%] max-w-[65px] max-h-[65px] rounded-full ">

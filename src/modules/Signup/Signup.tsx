@@ -63,7 +63,7 @@ export const Signup = () => {
     <div className="h-screen w-full flex ">
       <div className="w-2/3 p-4">
         <div className="h-[15%] text-primary">
-          <h1 className="font-bold text-2xl ">Health-Hazard </h1>
+          <h1 className="font-bold text-2xl ">MindSync </h1>
         </div>
         <div className="h-[80%]  flex items-center justify-center">
           <form
@@ -155,8 +155,8 @@ export const Signup = () => {
         <div>
           <p className="text-sm text-center px-10">
             Join thousands of satisfied users who have transformed their health
-            routines with Health-Hazards's intuitive interface, comprehensive
-            data analysis, and actionable recommendations.
+            routines with MindSyncs's intuitive interface, comprehensive data
+            analysis, and actionable recommendations.
           </p>
         </div>
       </div>

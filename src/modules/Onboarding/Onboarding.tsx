@@ -8,7 +8,7 @@ export const Onboarding = () => {
     <div className="h-screen w-full flex ">
       <div className="w-2/3 p-4">
         <div className="h-[15%] text-primary">
-          <h1 className="font-bold text-2xl ">Health-Hazard </h1>
+          <h1 className="font-bold text-2xl ">MindSync </h1>
         </div>
         <div className="h-[85%]  flex items-center justify-center">
           {/* features */}
