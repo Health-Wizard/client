@@ -26,10 +26,10 @@ export const getSingleEmployee = async (empId: Number) => {
 export const getAllEmployees = async () => {
   try {
     const response = await AxiosClient.get("/emp/getEmployees");
-    console.log(response);
+    //console.log(response);
     return response.data;
   } catch (error) {
-    console.log('Error: ', error);
+    console.log("Error: ", error);
   }
 };
 
@@ -41,7 +41,9 @@ export const getAllEmployees = async () => {
  */
 export const getAllEmployeesByCompanyName = async (page: number = 1) => {
   try {
-    const response = await AxiosClient.get(`/emp/getEmployeesByCompany?page=${page}`);
+    const response = await AxiosClient.get(
+      `/emp/getEmployeesByCompany?page=${page}`
+    );
     console.log(response);
     return response.data;
   } catch (error) {
@@ -162,10 +164,10 @@ export const getAllCompanyNames = async (page: number = 1) => {
  */
 export const getRole = async () => {
   try {
-    const response = await AxiosClient.get('emp/role/');
+    const response = await AxiosClient.get("emp/role/");
     console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log('Error: ', error);
+    console.log("Error: ", error);
   }
-}
+};

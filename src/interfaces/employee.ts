@@ -6,7 +6,8 @@ export interface Employee {
   role?: string;
   gender?: string;
   companyName?: string;
-  age?: Number,
+  age?: Number;
+  name?: string;
 }
 
 export interface Register {
