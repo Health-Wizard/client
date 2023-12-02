@@ -11,7 +11,9 @@ export default {
         input_field_gray: "#eeeeee",
         blue_shade_1: "#eff8ff",
         blue_shade_2: "#e1f2fd",
-
+      },
+      backgroundImage: {
+        coming: "url('src/assets/images/comingsoon.png')",
       },
     },
   },
