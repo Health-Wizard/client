@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { fetchAnalytics } from "@modules/Dashboard/utils/DashboardUtils";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

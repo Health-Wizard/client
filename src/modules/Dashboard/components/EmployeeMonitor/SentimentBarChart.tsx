@@ -1,4 +1,7 @@
-import { fetchAnalytics } from "@modules/Dashboard/utils/DashboardUtils";
+import {
+  fetchAnalytics,
+  sumColumns,
+} from "@modules/Dashboard/utils/DashboardUtils";
 import { Chart as ChartJS, registerables } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { useQuery } from "react-query";
@@ -20,7 +23,7 @@ interface IChartOpts {
 }
 
 const options: IChartOpts = {
-  indexAxis: "y" as const,
+  indexAxis: "x" as const,
   responsive: true,
   plugins: {
     legend: {
@@ -45,18 +48,11 @@ interface IChartData {
     data: number[];
   }[];
 }
-
-export default function BarChart() {
-  const { isLoading, data } = useQuery(
-    //@ts-ignore
-    ["analytics"],
-    () =>
-      //@ts-ignore
-      fetchAnalytics()
-  );
+export default function SentimentBarChart() {
+  const { isLoading, data } = useQuery(["analytics"], () => fetchAnalytics());
 
   const chartData: IChartData = {
-    labels: data ? [...data.data[3].label[0]] : [],
+    labels: data ? [...data.data[3].label] : [],
     datasets: [
       {
         label: "Dataset",
@@ -65,17 +61,16 @@ export default function BarChart() {
         borderWidth: 1,
         // hoverBackgroundColor: "rgba(255, 99, 132, 0.4)",
         // hoverBorderColor: "rgb(255, 99, 132)",
-        data: data ? [...data.data[3].data[0]] : [],
+        data: data ? [...sumColumns(data.data[3].data)] : [],
       },
     ],
   };
 
+  console.log(data ? sumColumns(data.data[3].data) : "");
+
   return (
-    <div className="h-full bg-white rounded-xl p-3">
-      <h2 className="text-sm font-semibold h-[5%] ">Stress Index</h2>
-      <div className="h-[95%] w-full">
-        <Bar options={options} data={chartData} style={{ width: "100%" }} />;
-      </div>
+    <div className="h-full w-full">
+      <Bar options={options} data={chartData} style={{ width: "100%" }} />
     </div>
   );
 }
