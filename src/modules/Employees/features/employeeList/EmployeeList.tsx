@@ -81,7 +81,7 @@ export const EmployeeList = () => {
                       ? "border-t"
                       : ""
                   }  border-border_gray border-b ${
-                    data.totalPages < 5 ? "h-[50%] " : ""
+                    data.totalPages < 5 ? "" : ""
                   } `}
                 >
                   <div className="h-[60%] flex items-center justify-center">
