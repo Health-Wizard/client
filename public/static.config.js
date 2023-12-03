@@ -1,11 +1,14 @@
-// public/static.config.js
+// static.config.js
 
 module.exports = {
-  // For Render.com, add a rewrite rule to serve index.html for all routes
-  rewrites: () => [
-    {
-      source: "**",
-      destination: "/index.html",
-    },
-  ],
+  forceSSLOptions: {
+    enable301Redirects: true,
+    exclude: [
+      "/static/*",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/logo.ico",
+      "/.well-known/*",
+    ],
+  },
 };
