@@ -21,10 +21,10 @@ export default function Piechart() {
   );
 
   const chartData = {
-    labels: data ? [...data.data[2].label[0]] : [],
+    labels: data ? [...data.data[2].label] : [],
     datasets: [
       {
-        data: data ? [...data.data[2].data[0]] : [],
+        data: data ? [...data.data[2].data] : [],
         backgroundColor: ["#C7B1F1", "#9968FE", "#B998F6"],
         hoverOffset: 4,
       },

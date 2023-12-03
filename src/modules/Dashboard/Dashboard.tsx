@@ -12,6 +12,7 @@ const fetchUserRole = async () => {
 };
 export const Dashboard = () => {
   const { data, isLoading } = useQuery("userRole", fetchUserRole);
+
   return (
     <Layout>
       <div className="h-full w-full ">
@@ -24,8 +25,12 @@ export const Dashboard = () => {
             />
           </div>
         )}
-        {data && data.role == "employee" && !isLoading && <EmployeeDashboard />}
-        {data && data.role == "admin" && !isLoading && <AdminDashboard />}
+        {data && !isLoading && data.role == "employee" && !isLoading && (
+          <EmployeeDashboard />
+        )}
+        {data && !isLoading && data.role == "admin" && !isLoading && (
+          <AdminDashboard />
+        )}
       </div>
     </Layout>
   );
