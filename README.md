@@ -1,3 +1,11 @@
+<p align="center">
+<img src="https://github.com/Health-Wizard/.github/assets/98249720/efb222b5-2dda-466b-b5ce-070e744228f7" alt="IntelliCare Logo" width="260" height="200">
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React%20JS-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React JS">
+  <img src="https://img.shields.io/badge/Typescript-3776AB?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript">
+</p>
+
 # Mind-Sync
 
 MindSync is an AI-powered platform revolutionizing mental health support in the workplace. Utilizing Large Language Models (LLM) and Natural Language Processing (NLP), it comprehensively analyzes employee data to understand mental well-being.
@@ -21,6 +29,6 @@ Before you begin, make sure you have the following installed:
    ````bash
    https://github.com/Health-Wizard/client.git
 
-   ``` pnpm install```
+   ``` npm install```
    ```npm run dev```
    ````
