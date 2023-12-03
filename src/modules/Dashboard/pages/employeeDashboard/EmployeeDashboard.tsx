@@ -4,16 +4,12 @@ import EmployeeReportCards from "@modules/Dashboard/components/EmployeeReportCar
 import EmployeeWelcome from "@modules/Dashboard/components/EmployeeWelcome/EmployeeWelcome";
 import SleepMonitor from "@modules/Dashboard/components/SleepMonitor/SleepMonitor";
 import Profile from "@modules/Dashboard/features/profile/Profile";
+import { fetchEmployee } from "@modules/Dashboard/utils/DashboardUtils";
 import { getSingleEmployee } from "@modules/Shared/services/apis/employee";
 import { useEmployeeStore } from "@modules/Shared/store/employeeStore";
 import { useAuthStore } from "@modules/Shared/store/userStore";
 
 import { useQuery } from "react-query";
-
-const fetchEmployee = async (empId: number) => {
-  const data = await getSingleEmployee(empId);
-  return data;
-};
 
 export default function EmployeeDashboard() {
   const { user } = useAuthStore();
