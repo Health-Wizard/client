@@ -54,9 +54,9 @@ export default function BarChart() {
       //@ts-ignore
       fetchAnalytics()
   );
-
+  console.log(data && console.log(data.data[3].xrange));
   const chartData: IChartData = {
-    labels: data ? [...data.data[3].label[0]] : [],
+    labels: data ? [...data.data[3].xrange[0]] : [],
     datasets: [
       {
         label: "Dataset",
@@ -73,8 +73,8 @@ export default function BarChart() {
   return (
     <div className="h-full bg-white rounded-xl p-3">
       <h2 className="text-sm font-semibold h-[5%] ">Stress Index</h2>
-      <div className="h-[95%] w-full">
-        <Bar options={options} data={chartData} style={{ width: "100%" }} />;
+      <div className="h-[95%] w-full ">
+        <Bar options={options} data={chartData} style={{ width: "100%" }} />
       </div>
     </div>
   );

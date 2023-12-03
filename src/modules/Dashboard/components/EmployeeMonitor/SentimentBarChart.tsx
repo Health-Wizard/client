@@ -81,7 +81,10 @@ export default function SentimentBarChart() {
       },
       {
         label: "neutral",
-        data: data ? [...data.data[3].data[1]] : [],
+        data:
+          data && data.data[3].data[1].length > 0
+            ? [...data.data[3].data[1]]
+            : [],
         backgroundColor: "#0079FF",
       },
       {
