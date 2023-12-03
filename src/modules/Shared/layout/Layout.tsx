@@ -184,15 +184,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
             </Link>
             <div
+              onClick={logoutUser}
               className={`h-[20%]  text-text_gray flex  cursor-pointer rounded-md w-full px-2 hover:bg-primary hover:text-white`}
             >
               <div className="f-full w-[20%]  flex items-center">
                 <RxExit size={20} className="" />
               </div>
-              <div
-                className="flex items-center text-sm font-semibold"
-                onClick={logoutUser}
-              >
+              <div className="flex items-center text-sm font-semibold">
                 Log out
               </div>
             </div>

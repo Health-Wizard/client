@@ -5,6 +5,7 @@ import {
   BsEmojiSmile,
   BsEmojiTear,
 } from "react-icons/bs";
+import SentimentBarChart from "./SentimentBarChart";
 
 export default function EmployeeMonitor() {
   return (
@@ -31,7 +32,14 @@ export default function EmployeeMonitor() {
           </div>
         </div>
       </div>
-      <div className="h-[70%]">Chart</div>
+      <div className="h-[70%]">
+        <h3 className="h-[5%] text-sm font-semibold  flex-flex-col gap-2">
+          Weekly Sentiment Distribution
+        </h3>
+        <div className="h-[90%] w-full ">
+          <SentimentBarChart />
+        </div>
+      </div>
     </div>
   );
 }

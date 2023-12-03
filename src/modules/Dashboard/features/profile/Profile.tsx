@@ -13,7 +13,7 @@ export default function Profile() {
           {employee && employee.name}
         </h3>
         <p className="text-xs">
-          {employee && employee.age ? employee.age + "years old" : ""}
+          {employee && employee.age ? employee.age + " years old" : ""}
         </p>
       </div>
       <div className="h-[33.3%] border-t-2 border-border_gray items-center grid grid-cols-3 py-3">

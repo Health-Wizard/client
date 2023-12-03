@@ -7,7 +7,7 @@ import LoadingIcons from "react-loading-icons";
 
 const fetchUserRole = async () => {
   const data = await getRole();
-  console.log(data);
+  //console.log(data);
   return data;
 };
 export const Dashboard = () => {
